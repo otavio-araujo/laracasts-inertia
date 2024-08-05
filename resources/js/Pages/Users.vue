@@ -1,5 +1,8 @@
 <template>
-
+    <Head>
+        <title>Users</title>
+        <meta content="My App - Users Information" head-key="description" type="description"/>
+    </Head>
     <h1 class="text-4xl font-bold">Users</h1>
 
     <div style="margin-top: 400px">
@@ -10,7 +13,7 @@
 </template>
 
 <script setup>
-import {Link} from "@inertiajs/vue3";
+import {Head, Link} from "@inertiajs/vue3";
 
 const props = defineProps({
     time: String
