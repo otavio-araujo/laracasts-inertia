@@ -4,6 +4,6 @@ import Nav from "../Shared/Nav.vue";
 </script>
 
 <template>
-    <h1>Settings</h1>
-    <Nav/>
+    <h1 class="text-4xl font-bold">Settings</h1>
+    <Nav class="mt-8"/>
 </template>
