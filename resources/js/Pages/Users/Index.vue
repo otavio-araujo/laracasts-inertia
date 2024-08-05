@@ -4,7 +4,12 @@
         <meta content="My App - Users Information" head-key="description" type="description"/>
     </Head>
     <div class="flex justify-between mb-6">
-        <h1 class="text-3xl">Users</h1>
+        <div class="flex items-ends space-x-6">
+            <h1 class="text-3xl">Users</h1>
+            <Link class="text-blue-500 text-sm border border-blue-500 px-2 py-1 rounded-md" href="/users/create">New
+                User
+            </Link>
+        </div>
         <input v-model="search" class="border px-2 rounded-lg" placeholder="Search..." type="text">
     </div>
     <div class="flex flex-col">

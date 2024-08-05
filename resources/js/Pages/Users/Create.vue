@@ -12,6 +12,9 @@
                    name="name"
                    required
                    type="text"/>
+            <div v-if="errors.name" class="mt-2 text-xs font-semibold text-red-700"
+                 v-text="errors.name">
+            </div>
         </div>
 
         <div class="mb-6">
@@ -25,6 +28,9 @@
                 required
                 type="email"
             />
+            <div v-if="errors.email" class="mt-2 text-xs font-semibold text-red-700"
+                 v-text="errors.email">
+            </div>
         </div>
 
         <div class="mb-6">
@@ -38,6 +44,9 @@
                 required
                 type="password"
             />
+            <div v-if="errors.password" class="mt-2 text-xs font-semibold text-red-700"
+                 v-text="errors.password">
+            </div>
         </div>
 
         <div class="mb-6">
@@ -49,6 +58,10 @@
 <script setup>
 import {Head, router} from "@inertiajs/vue3";
 import {reactive} from "vue";
+
+defineProps({
+    errors: Object
+})
 
 const form = reactive({
     name: "",
