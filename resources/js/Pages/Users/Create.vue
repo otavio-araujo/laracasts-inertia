@@ -12,8 +12,8 @@
                    name="name"
                    required
                    type="text"/>
-            <div v-if="errors.name" class="mt-2 text-xs font-semibold text-red-700"
-                 v-text="errors.name">
+            <div v-if="form.errors.name" class="mt-2 text-xs font-semibold text-red-700"
+                 v-text="form.errors.name">
             </div>
         </div>
 
@@ -28,8 +28,8 @@
                 required
                 type="email"
             />
-            <div v-if="errors.email" class="mt-2 text-xs font-semibold text-red-700"
-                 v-text="errors.email">
+            <div v-if="form.errors.email" class="mt-2 text-xs font-semibold text-red-700"
+                 v-text="form.errors.email">
             </div>
         </div>
 
@@ -44,32 +44,30 @@
                 required
                 type="password"
             />
-            <div v-if="errors.password" class="mt-2 text-xs font-semibold text-red-700"
-                 v-text="errors.password">
+            <div v-if="form.errors.password" class="mt-2 text-xs font-semibold text-red-700"
+                 v-text="form.errors.password">
             </div>
         </div>
 
         <div class="mb-6">
-            <button class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" type="submit">Submit</button>
+            <button :disabled="form.processing"
+                    class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
+                    type="submit">Submit
+            </button>
         </div>
     </form>
 </template>
 
 <script setup>
-import {Head, router} from "@inertiajs/vue3";
-import {reactive} from "vue";
+import {Head, useForm} from "@inertiajs/vue3";
 
-defineProps({
-    errors: Object
-})
-
-const form = reactive({
+const form = useForm({
     name: "",
     email: "",
     password: ""
 });
 
 const submit = () => {
-    router.post("/users", form);
+    form.post("/users");
 }
 </script>
