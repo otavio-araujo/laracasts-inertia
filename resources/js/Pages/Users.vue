@@ -1,14 +1,3 @@
-<script setup>
-import {Link} from "@inertiajs/vue3";
-import Layout from "../Shared/Layout.vue";
-
-defineOptions({layout: Layout})
-
-const props = defineProps({
-    time: String
-})
-</script>
-
 <template>
 
     <h1 class="text-4xl font-bold">Users</h1>
@@ -19,3 +8,11 @@ const props = defineProps({
     </div>
 
 </template>
+
+<script setup>
+import {Link} from "@inertiajs/vue3";
+
+const props = defineProps({
+    time: String
+})
+</script>
