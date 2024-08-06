@@ -6,7 +6,8 @@
     <div class="flex justify-between mb-6">
         <div class="flex items-ends space-x-6">
             <h1 class="text-3xl">Users</h1>
-            <Link class="text-blue-500 text-sm border border-blue-500 px-2 py-1 rounded-md" href="/users/create">New
+            <Link v-if="can.createUser" class="text-blue-500 text-sm border border-blue-500 px-2 py-1 rounded-md"
+                  href="/users/create">New
                 User
             </Link>
         </div>
@@ -29,7 +30,7 @@
                                 </div>
                             </td>
 
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <td v-if="user.can.edit" class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <Link :href="`/users/${user.id}/edit`" class="text-indigo-600 hover:text-indigo-900">
                                     Edit
                                 </Link>
@@ -52,7 +53,8 @@ import {debounce} from "lodash";
 
 const props = defineProps({
     users: Object,
-    filters: Object
+    filters: Object,
+    can: Object
 })
 
 const search = ref(props.filters.search);
